@@ -1,0 +1,60 @@
+<!--
+Copyright 2019 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet"
+        href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <?!= include('3pas_dialog_css'); ?>
+  </head>
+  <body>
+    <div id="source-partner" class="block form-group">
+      <label for="source-partner-id">Partner ID</label>
+      <input type="text" id="source-partner-id" <? if (IS_DEBUG) {?> value="1181942" <? } ?>>
+    </div>
+
+    <div class="block form-group" onchange="selectionChanged()">
+      <label for="input-type">Choose your input type</label>
+      <select id="input-type">
+        <option selected>Insertion Order ID</option>
+        <option>Campaign ID</option>
+      </select>
+    </div>
+
+    <div id="source-io" class="block form-group">
+      <label for="source-io-id">Source IO ID</label>
+      <input type="text" id="source-io-id" <? if (IS_DEBUG) {?> value="8862747" <? } ?>>
+    </div>
+
+    <div id="source-campaign" class="block form-group" style="display:none">
+      <label for="source-campaign-id">Source Campaign ID</label>
+      <input type="text" id="source-campaign-id" <? if (IS_DEBUG) {?> value="2832620" <? } ?>>
+    </div>
+
+    <button id='fetch' class="action" onclick="fetchSdf()">Create 3PAS Form</button>
+    <br>
+    <br>
+    <div id="loader">
+      <div class="loader-anim"></div>
+      Processing, dialog will close when done.
+    </div>
+
+    <?!= include ('3pas_dialog_js'); ?>
+  </body>
+</html>

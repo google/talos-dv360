@@ -1,0 +1,65 @@
+<!--
+Copyright 2019 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<script>
+  var sourcePartner = document.getElementById('source-partner');
+  var sourcePartnerId = document.getElementById('source-partner-id');
+  var sourceIo = document.getElementById('source-io');
+  var sourceIoId = document.getElementById('source-io-id');
+  var sourceCampaign = document.getElementById('source-campaign');
+  var sourceCampaignId = document.getElementById('source-campaign-id');
+  var inputType = document.getElementById('input-type');
+  var fetch = document.getElementById('fetch');
+  var loader = document.getElementById('loader');
+
+  /**
+  * Check if the selection was changed.
+  */
+  function selectionChanged() {
+    var selectedInputType = inputType.options[inputType.selectedIndex].text;
+    console.log(selectedInputType);
+    if (selectedInputType === '<?=INSERTION_ORDER_ID?>') {
+      sourceCampaign.style.display = 'none';
+      sourceIo.style.display = 'block';
+    } else if (selectedInputType === '<?=CAMPAIGN_ID?>') {
+      sourceCampaign.style.display = 'block';
+      sourceIo.style.display = 'none';
+    }
+  }
+
+  /**
+   * Starts the SDF Processing.
+   */
+  function fetchSdf() {
+    // Disable all inputs.
+    sourcePartnerId.disabled = 'disabled'
+    sourceIoId.disabled = 'disabled';
+    sourceCampaignId.disabled = 'disabled';
+    inputType.disabled = 'disabled';
+    fetch.disabled = 'disabled';
+    loader.style.display = 'block';
+    // Get content from the form.
+    var selectedInputType = inputType.options[inputType.selectedIndex].text;
+    var sourcePartnerIdVal = sourcePartnerId.value;
+    var sourceIoIdVal = sourceIoId.value;
+    var sourceCampaignIdVal = sourceCampaignId.value;
+    google.script.run.withSuccessHandler(function(){
+      google.script.host.close();
+    }).retrieveAds3pas(selectedInputType, sourcePartnerIdVal, sourceIoIdVal,
+        sourceCampaignIdVal);
+  }
+
+</script>

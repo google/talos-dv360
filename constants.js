@@ -40,7 +40,7 @@ var CONFIG_SHEET_NAME = 'Configuration';
 var TRACKER_SHEET_NAME = 'Tracker';
 
 // Master sheet to copy the config sheets from.
-var MASTER_CONFIG_SHEET = '1QiNwdN6QPVEG6xtoPnrPwdynC8NtGmPsBAAQAzCsfEs';
+var MASTER_CONFIG_SHEET = '1pAD9iRbqnF-sKBKTFOThE9cjD_Wpm1nHtj_A0Nx7iTU';
 // Config sheet name in master config sheet will also be 'Configuration'.
 
 var INSERTION_ORDER_ID = 'Insertion Order ID';
@@ -66,7 +66,7 @@ var SDF_VERSION = 'SDF_VERSION_5_3';
 var DV360_API_VERSION = 'v1';
 
 // 3PAS tracker constants.
-var MASTER_CONFIG_SHEET_3PAS = '1zKIRF54bYXWTHe6D4Kq2N-yJEu5vvn7OaI7p7aO-Y_A';
+var MASTER_CONFIG_SHEET_3PAS = '1oGJNAOrWcgvMVFiFWLdfVw8ew3e1wFyF5HbStHotiLw';
 var CONFIG_SHEET_NAME_3PAS = 'Form';
 
 // Too Big sheet - where the values are split and saved temporarily if they are
